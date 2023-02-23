@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>reveal.js - Auto Animate</title>
+
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+
+		<link rel="stylesheet" href="./dist/reveal.css" />
+		<link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
+		<link rel="stylesheet" href="./plugin/highlight/monokai.css" />
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-auto-animate data-auto-animate-unmatched="fade">
+					<h3>CSS</h3>
+					<h4>A look behind the scenes</h4>
+
+					<img src="./assets/css.png" width="200px" />
+				</section>
+
+				<section>
+
+					<section data-auto-animate>
+						<h3>Today topics</h3>
+						<ul>
+							<li>Three pillars to write good HTML and CSS</li>
+							<li>How CSS works behind the scenes</li>
+							<li>How CSS is parsed: The cascade and specificity</li>
+							<li>How CSS is parsed: Value processing</li>
+							<li>How CSS is parsed: Inheritance</li>
+							<li>Converting px to rem</li>
+							<li>How CSS renders a website: The visual formatting model</li>
+							<li>CSS Architecture, components, BEM</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h3 data-id="text-props">Three pillars to good HTML and CSS</h3>
+					</section>
+
+					<section data-auto-animate>
+						<h3 data-id="text-props">Three pillars to good HTML and CSS</h3>
+						<div style="margin: auto">
+							<div class="wrapper-dots">
+								<div class="dot">Responsive design</div>
+
+								<div class="dot">Maintainable and scalable code</div>
+
+								<div class="dot">Web performance</div>
+							</div>
+
+							<div
+								style="
+									width: 80%;
+									display: flex;
+									font-size: 18px;
+									margin: auto;
+									justify-content: space-between;
+								"
+							>
+								<ul>
+									<li>Fluid layout</li>
+									<li>Media queries</li>
+									<li>Responsive images</li>
+									<li>Correct units</li>
+									<li>Desktop-first vs mobile-first</li>
+								</ul>
+
+								<ul>
+									<li>Clean</li>
+									<li>Easy to understand</li>
+									<li>Growth</li>
+									<li>Reusable</li>
+									<li>How to organize files</li>
+									<li>How to name classes</li>
+									<li>How to structure HTML</li>
+								</ul>
+
+								<ul>
+									<li>Less HTTP requests</li>
+									<li>Less code</li>
+									<li>Compress code</li>
+									<li>Use a CSS preprocessor*</li>
+									<li>Less images</li>
+									<li>Compress images</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h3 data-id="text-props">
+							How CSS is parsed: The cascade and specificity
+						</h3>
+					</section>
+
+					<section data-auto-animate>
+						<h3 data-id="text-props">CSS rule</h3>
+						<div>
+							<img src="./assets/css-declaration-small.png" />
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h3 data-id="text-props">Cascade</h3>
+						<p>
+							Process of combining different stylesheets and resolving conflicts
+							between different CSS rules and declarations, when more than one
+							rule applies to a certain element
+						</p>
+					</section>
+
+					<section data-auto-animate>
+						<h3 data-id="text-props">Cascade</h3>
+						<p>
+							Process of combining different stylesheets and resolving conflicts
+							between different CSS rules and declarations, when more than one
+							rule applies to a certain element
+						</p>
+					</section>
+
+					<section data-auto-animate>
+						<h3 data-id="text-props">Parse CSS and HTML</h3>
+						<img src="./assets/parse.png" />
+					</section>
+
+					<section data-auto-animate>
+						<img src="./assets/importance-specifity-source-order.png" />
+					</section>
+
+					<section data-auto-animate>
+						<div style="display: flex">
+							<img style="width: 50%" src="assets/Pasted Graphic.png" />
+							<div
+								style="
+									display: flex;
+									flex-direction: column;
+									justify-content: space-around;
+								"
+							>
+								<div style="display: flex">
+									<div
+										style="
+											width: 50px;
+											height: 50px;
+											background-color: #8b0000;
+											border-radius: 50px;
+											margin-left: 50px;
+										"
+									>
+										1
+									</div>
+									<span style="margin-left: 50px">(0,0,1,0)</span>
+								</div>
+
+								<div style="display: flex">
+									<div
+										style="
+											width: 50px;
+											height: 50px;
+											background-color: #8b0000;
+											border-radius: 50px;
+											margin-left: 50px;
+										"
+									>
+										2
+									</div>
+									<span style="margin-left: 50px">(0,1,2,2)</span>
+								</div>
+								<div style="display: flex">
+									<div
+										style="
+											width: 50px;
+											height: 50px;
+											background-color: #8b0000;
+											border-radius: 50px;
+											margin-left: 50px;
+										"
+									>
+										3
+									</div>
+									<span style="margin-left: 50px">(0,0,0,1)</span>
+								</div>
+								<div style="display: flex">
+									<div
+										style="
+											width: 50px;
+											height: 50px;
+											background-color: #8b0000;
+											border-radius: 50px;
+											margin-left: 50px;
+										"
+									>
+										4
+									</div>
+									<span style="margin-left: 50px">(0,1,2,1)</span>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3 data-id="text-props">
+							Cascade and specificity: What you need to know
+						</h3>
+						<ul style="font-size: 22px; line-height: 2">
+							<li>
+								CSS declarations marked with !important have the highest
+								priority
+							</li>
+							<li>
+								But only use !important as a last resource it's better to use
+								correct specificities - more maintainable code
+							</li>
+							<li>
+								Inline styles will always have priority over styles in external
+								resources
+							</li>
+							<li>
+								A selector that contain 1 ID is more specific than one with 1000
+								classes
+							</li>
+							<li>
+								A selector that contain 1 class is more specific than one with
+								1000 elements
+							</li>
+							<li>
+								The universal selector * has no specificity value (0,0,0,0)
+							</li>
+							<li>Rely more on specificity than on the order of selectors</li>
+							<li>
+								But rely on order when using 3rd-party stylesheet - always put
+								your author stylesheet last.
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h3>How CSS is parsed: Value processing</h3>
+					</section>
+
+					<section data-auto-animate>
+						<img
+							style="width: 1000px; display: block"
+							src="./assets/processing.webp"
+						/>
+					</section>
+
+					<section data-auto-animate>
+						<img
+							style="width: 1000px; display: block"
+							src="./assets/from-relative-to-absolute.png"
+						/>
+					</section>
+					<section>
+						<h4>Value processing: What you need to know</h4>
+						<ul style="font-size: 18px">
+							<li>
+								Each property has an initial value, used if nothing is declared
+							</li>
+							<li>
+								Browsers specify a root font-size for each page (usually 16px)
+							</li>
+							<li>
+								Percentages and relative values are always converted to pixels
+							</li>
+							<li>
+								Percentages are measured relative to their parent's font -size,
+								if used to specify font-size
+							</li>
+							<li>
+								em are measured relative to their parent font-size, if used to
+								specify font-size
+							</li>
+							<li>
+								em are measured relative to the current font-size, if used to
+								specify lengths
+							</li>
+							<li>
+								rem are always measured relative to the document's root
+								font-size
+							</li>
+							<li>
+								vh and vw are simply percentage measurements of the viewport's
+								height and width
+							</li>
+							<li>
+								em are measured relative to the current font-size, if used to
+								specify lengths
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<section data-auto-animate data-auto-animate-unmatched="fade">
+					<section data-auto-animate>
+						<h3>Inheritance in CSS</h3>
+					</section>
+
+					<section data-auto-animate>
+						<img src="./assets/inheritance.jpeg" />
+					</section>
+
+					<section>
+						<h4>Inheritance: What you need to know</h4>
+						<ul style="font-size: 18px">
+							<li>
+								Properties related to text are inherited: font- family, font-size, color, etc;
+							</li>
+							<li>
+								The computed value of a property is what gets inherited, not the declared value.
+							</li>
+							<li>
+								Inheritance of a property only works if no one declares a value for that property;
+							</li>
+							<li>The inherit keyword forces inheritance on a certain property;
+							</li>
+							<li>
+								The initial keyword resets a property to its initial value.
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<section data-auto-animate data-auto-animate-unmatched="fade">
+					<section data-auto-animate>
+						<h3>Converting px to rem</h3>
+					</section>
+
+					<section data-auto-animate>
+						<div style="display: flex; align-items: center;">
+							<img style="width:400px" src="./assets/reset.png" />
+							<p style="align-self: center;font-size: 18px;">This will give you the same result, and make it easier to change the box-sizing in plugins or other components that leverage other behavior.</p>
+						</div>
+						
+					</section>
+
+					<section>
+						<h4>Inheritance: What you need to know</h4>
+						<ul style="font-size: 18px">
+							<li>
+								Properties related to text are inherited: font- family, font-size, color, etc;
+							</li>
+							<li>
+								The computed value of a property is what gets inherited, not the declared value.
+							</li>
+							<li>
+								Inheritance of a property only works if no one declares a value for that property;
+							</li>
+							<li>The inherit keyword forces inheritance on a certain property;
+							</li>
+							<li>
+								The initial keyword resets a property to its initial value.
+							</li>
+						</ul>
+					</section>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="./dist/reveal.js"></script>
+		<script src="./plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				center: true,
+				hash: true,
+				plugins: [RevealHighlight],
+			});
+		</script>
+	</body>
+</html>
